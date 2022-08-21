@@ -87,7 +87,8 @@ class LoginState extends State<Login> {
                     child: const Text('Sign me in!'),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        _showDialog('Yes! Signed in Successfully');
+                        // _showDialog('Yes! Signed in Successfully');
+                        Navigator.pushNamed(context, '/articles');
                       }
                     },
                   ),
@@ -100,20 +101,20 @@ class LoginState extends State<Login> {
     );
   }
 
-  void _showDialog(String message) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(message),
-        titleTextStyle: const TextStyle(fontSize: 16.0, color: Colors.amber),
-        backgroundColor: Colors.black45,
-        actions: [
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-    );
-  }
+  // void _showDialog(String message) {
+  //   showDialog<void>(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: Text(message),
+  //       titleTextStyle: const TextStyle(fontSize: 16.0, color: Colors.amber),
+  //       backgroundColor: Colors.black45,
+  //       actions: [
+  //         TextButton(
+  //           child: const Text('OK'),
+  //           onPressed: () => Navigator.of(context).pop(),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
