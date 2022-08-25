@@ -36,18 +36,19 @@ class _ArticleListState extends State<ArticleList> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
       appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(64, 57, 53, 1),
-          title: const Text('Articles'),
-          centerTitle: true,
-          elevation: 0.0,
-          actions: <Widget>[
-            IconButton(
-                icon: const Icon(Icons.logout_rounded),
-                tooltip: 'Logout',
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                }),
-          ]),
+        backgroundColor: const Color.fromRGBO(64, 57, 53, 1),
+        title: const Text('Articles'),
+        centerTitle: true,
+        elevation: 0.0,
+        actions: <Widget>[
+          IconButton(
+              icon: const Icon(Icons.logout_rounded),
+              tooltip: 'Logout',
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              }),
+        ],
+      ),
       body: _articles.isNotEmpty
           ? GridView.count(
               crossAxisCount: 2,
@@ -56,8 +57,18 @@ class _ArticleListState extends State<ArticleList> {
               mainAxisSpacing: 5.0,
               children: _articles
                   .map(
-                    (e) => (Center(
-                      child: Text(e['title']),
+                    (e) => (Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Image.network(e['cover'],
+                              fit: BoxFit.contain, width: 250, height: 500),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Text(e['title']),
+                        ),
+                      ],
                     )),
                   )
                   .toList(),
