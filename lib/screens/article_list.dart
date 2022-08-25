@@ -57,18 +57,45 @@ class _ArticleListState extends State<ArticleList> {
               mainAxisSpacing: 5.0,
               children: _articles
                   .map(
-                    (e) => (Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Image.network(e['cover'],
-                              fit: BoxFit.contain, width: 250, height: 500),
+                    (e) => (Container(
+                      padding: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(6.66),
+                        image: DecorationImage(
+                          image: NetworkImage(e['cover']),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.21),
+                            BlendMode.darken,
+                          ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: Text(e['title']),
-                        ),
-                      ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            e['title'],
+                            style: const TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              color: Colors.white,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                          Text(
+                            e['author'],
+                            style: const TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              color: Colors.white70,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
                     )),
                   )
                   .toList(),
