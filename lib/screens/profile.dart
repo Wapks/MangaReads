@@ -8,7 +8,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
         appBar: AppBar(
-            backgroundColor: const Color.fromRGBO(64, 57, 53, 1),
+            backgroundColor: Colors.orangeAccent,
             title: const Text('My Profile'),
             centerTitle: true,
             elevation: 0.0,

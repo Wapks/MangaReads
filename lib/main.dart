@@ -19,6 +19,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'MyComicList',
         initialRoute: '/login',
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+          primaryColor: Colors.orange,
+          primarySwatch: Colors.orange,
+        ),
         routes: {
           '/login': (context) => const Login(),
           '/profile': (context) => const Profile(),

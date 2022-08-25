@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(64, 57, 53, 1),
+        backgroundColor: Colors.orangeAccent,
         title: const Text('Sign in'),
         centerTitle: true,
         elevation: 0.0,
@@ -50,9 +50,10 @@ class _LoginState extends State<Login> {
             const Text(
               'Hey there! 👋 ',
               style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w800,
-                  color: Color.fromRGBO(69, 52, 42, 1)),
+                fontSize: 24.0,
+                fontWeight: FontWeight.w800,
+                color: Colors.orangeAccent,
+              ),
             ),
             const SizedBox(height: 20),
             Form(
@@ -84,7 +85,13 @@ class _LoginState extends State<Login> {
                   ),
                   const SizedBox(height: 10),
                   TextButton(
-                    child: const Text('Sign me in!'),
+                    child: const Text(
+                      'SIGN ME IN!',
+                      style: TextStyle(
+                          color: Colors.orangeAccent,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16.0),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // _showDialog('Yes! Signed in Successfully');

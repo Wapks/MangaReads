@@ -36,7 +36,7 @@ class _ArticleListState extends State<ArticleList> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(64, 57, 53, 1),
+        backgroundColor: Colors.orangeAccent,
         title: const Text('Articles'),
         centerTitle: true,
         elevation: 0.0,
@@ -91,7 +91,7 @@ class _ArticleListState extends State<ArticleList> {
                               overflow: TextOverflow.ellipsis,
                               color: Colors.white70,
                               fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
