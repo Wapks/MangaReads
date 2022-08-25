@@ -26,10 +26,10 @@ class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => LoginState();
+  State<Login> createState() => _LoginState();
 }
 
-class LoginState extends State<Login> {
+class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   FormData formData = FormData();
 
