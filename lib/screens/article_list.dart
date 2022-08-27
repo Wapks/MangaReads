@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hello_flutter/screens/article_detail.dart';
 
 class ArticleList extends StatefulWidget {
   const ArticleList({Key? key}) : super(key: key);
@@ -29,6 +30,11 @@ class _ArticleListState extends State<ArticleList> {
         isLoading = false;
       });
     });
+  }
+
+  void handlePressArticle(item) {
+    Navigator.pushNamed(context, '/article-details',
+        arguments: ArticleDetailArguments(id: item['title']));
   }
 
   @override
@@ -60,45 +66,48 @@ class _ArticleListState extends State<ArticleList> {
               mainAxisSpacing: 5.0,
               children: _articles
                   .map(
-                    (e) => (Container(
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(6.66),
-                        image: DecorationImage(
-                          image: NetworkImage(e['cover']),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(0.21),
-                            BlendMode.darken,
+                    (item) => (GestureDetector(
+                      onTap: () => handlePressArticle(item),
+                      child: Container(
+                        padding: const EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(6.66),
+                          image: DecorationImage(
+                            image: NetworkImage(item['cover']),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.21),
+                              BlendMode.darken,
+                            ),
                           ),
                         ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Text(
-                            e['author'],
-                            style: const TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.white70,
-                              fontSize: 10.0,
-                              letterSpacing: 0.25,
-                              fontWeight: FontWeight.w700,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              item['author'],
+                              style: const TextStyle(
+                                overflow: TextOverflow.ellipsis,
+                                color: Colors.white70,
+                                fontSize: 10.0,
+                                letterSpacing: 0.25,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
-                          ),
-                          Text(
-                            e['title'],
-                            style: const TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.white,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 1.2,
+                            Text(
+                              item['title'],
+                              style: const TextStyle(
+                                overflow: TextOverflow.ellipsis,
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 1.2,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     )),
                   )

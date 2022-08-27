@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 
-class ArticleDetail extends StatelessWidget {
+class ArticleDetailArguments {
+  final String id;
+
+  ArticleDetailArguments({required this.id});
+}
+
+class ArticleDetail extends StatefulWidget {
   const ArticleDetail({Key? key}) : super(key: key);
+
+  @override
+  State<ArticleDetail> createState() => _ArticleDetailState();
+}
+
+class _ArticleDetailState extends State<ArticleDetail> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
