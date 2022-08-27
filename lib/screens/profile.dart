@@ -9,7 +9,10 @@ class Profile extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
         appBar: AppBar(
             backgroundColor: Colors.orangeAccent,
-            title: const Text('My Profile'),
+            title: const Text(
+              'My Profile',
+              style: TextStyle(color: Colors.white),
+            ),
             centerTitle: true,
             elevation: 0.0,
             actions: <Widget>[

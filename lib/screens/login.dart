@@ -39,7 +39,10 @@ class _LoginState extends State<Login> {
       backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        title: const Text('Sign in'),
+        title: const Text(
+          'Sign in',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0.0,
       ),

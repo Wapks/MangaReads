@@ -9,7 +9,10 @@ class ArticleDetail extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
         appBar: AppBar(
             backgroundColor: Colors.orangeAccent,
-            title: const Text('Article Detail'),
+            title: const Text(
+              'Article Detail',
+              style: TextStyle(color: Colors.white),
+            ),
             centerTitle: true,
             elevation: 0.0,
             actions: <Widget>[

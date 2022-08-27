@@ -37,7 +37,10 @@ class _ArticleListState extends State<ArticleList> {
       backgroundColor: const Color.fromRGBO(245, 235, 224, 1),
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        title: const Text('Articles'),
+        title: const Text(
+          'Articles',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
@@ -76,6 +79,16 @@ class _ArticleListState extends State<ArticleList> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           Text(
+                            e['author'],
+                            style: const TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              color: Colors.white70,
+                              fontSize: 10.0,
+                              letterSpacing: 0.25,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
                             e['title'],
                             style: const TextStyle(
                               overflow: TextOverflow.ellipsis,
@@ -83,15 +96,6 @@ class _ArticleListState extends State<ArticleList> {
                               fontSize: 18.0,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 1.2,
-                            ),
-                          ),
-                          Text(
-                            e['author'],
-                            style: const TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.white70,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
