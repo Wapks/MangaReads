@@ -1,4 +1,4 @@
-# hello_flutter
+# manga_reads
 
 A new Flutter project.
 

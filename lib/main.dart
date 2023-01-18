@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
-
-import 'package:hello_flutter/screens/article_detail.dart';
-import 'package:hello_flutter/screens/article_list.dart';
-import 'package:hello_flutter/screens/login.dart';
-import 'package:hello_flutter/screens/profile.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
+import 'package:manga_reads/components/drawer/provider/drawer_provider.dart';
+import 'package:manga_reads/components/search/widget/search_page/search.dart';
+import 'package:manga_reads/core/router/router.dart';
+import 'package:manga_reads/core/theme/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MangaReadApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MangaReadApp extends StatelessWidget {
+  const MangaReadApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'MyComicList',
-        initialRoute: '/login',
-        theme: ThemeData(
-          fontFamily: 'Montserrat',
-          primaryColor: Colors.orange,
-          primarySwatch: Colors.orange,
-        ),
-        routes: {
-          '/login': (context) => const Login(),
-          '/profile': (context) => const Profile(),
-          '/articles': (context) => const ArticleList(),
-          '/article-details': (context) => const ArticleDetail()
-        });
+    return GetMaterialApp(
+      initialBinding: BindingsBuilder(() {
+        Get.lazyPut(() => DrawerNavProvider(), fenix: true);
+      }),
+      debugShowCheckedModeBanner: false,
+      title: 'MangaReads',
+      darkTheme: AppTheme.data,
+      themeMode: ThemeMode.dark,
+      initialRoute: SearchPage.path,
+      getPages: getRoutes,
+    );
   }
 }
